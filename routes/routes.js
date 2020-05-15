@@ -4,19 +4,22 @@ const axios = require('axios').default;
 
 router.get('/test', (req, res) => {
     res.send({
-        msg: 'ureeeeee'
-    })
+        msg: 'cacoso'    })
 })
 
 
 router.get('/temp', (req, res) => {
-    var datos = axios.get('https://ws.smn.gob.ar/map_items/weather/')
     
-    .then(function (response) {
-        var data = response
-        console.log(data)
-    })    
+    axios.get('https://ws.smn.gob.ar/map_items/weather/')
+    .then(response => {
+        var datos = res.json(response.data)
     
+    })
+    .catch(err => next(err));
+
+    
+    
+
 
 });
 
